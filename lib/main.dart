@@ -17,21 +17,21 @@ class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
 
-    return MyAppState();
+    return _MyAppState();
   }
 
 }
 
-class MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> {
 
    
   List<Question> questions = [Question(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), Question(question: "What pet do you have?", answers: ["Dog", "Cat", "Whale"])];
-  int questionIndex = 0;
+  int _questionIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-      if(questionIndex + 1 != questions.length){
-        questionIndex += 1;
+      if(_questionIndex + 1 != questions.length){
+        _questionIndex += 1;
       }
     });
   }
@@ -41,8 +41,8 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
 
 
-    var answerButtons = questions[questionIndex].answers.map((answer) => 
-       ElevatedButton(onPressed: answerQuestion, child: Text(answer)),
+    var answerButtons = questions[_questionIndex].answers.map((answer) => 
+       ElevatedButton(onPressed: _answerQuestion, child: Text(answer)),
     );
 
     return MaterialApp(
@@ -50,7 +50,7 @@ class MyAppState extends State<MyApp> {
         appBar: AppBar(title: Text("Hello World")),
         body: Column(
           children: [
-            Text(questions[questionIndex].question),
+            Text(questions[_questionIndex].question),
             ...answerButtons
           ],
         ),
