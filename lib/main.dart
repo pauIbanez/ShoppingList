@@ -6,23 +6,26 @@ void main() {
 
 
 class Question {
-  var question = "";
-  var answers = [];
+  String question = "";
+  List<String> answers = [];
 
   Question({required this.question, required this.answers});
 }
 
 class MyApp extends StatelessWidget {
 
+  int questionIndex = 0;
+
   void answerQuestion() {
-    print("Answer chosen");
+    questionIndex += 1;
+    print(questionIndex);
   }
 
 
   @override
   Widget build(BuildContext context) {
 
-    List<Question> questions = [Question(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"])];
+    List<Question> questions = [Question(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), Question(question: "What pet do you have?", answers: ["Dog", "Cat"])];
 
 
     return MaterialApp(
@@ -30,9 +33,9 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(title: Text("Hello World")),
         body: Column(
           children: [
-            Text(questions[0].question),
-            ElevatedButton(onPressed: answerQuestion, child: Text(questions[0].answers[0])),
-            ElevatedButton(onPressed: answerQuestion, child: Text(questions[0].answers[1])),
+            Text(questions[questionIndex].question),
+            ElevatedButton(onPressed: answerQuestion, child: Text(questions[questionIndex].answers[0])),
+            ElevatedButton(onPressed: answerQuestion, child: Text(questions[questionIndex].answers[1])),
           ],
         ),
       ),
