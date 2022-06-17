@@ -12,13 +12,27 @@ class Question {
   Question({required this.question, required this.answers});
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
 
+  @override
+  State<StatefulWidget> createState() {
+
+    return MyAppState();
+  }
+
+}
+
+class MyAppState extends State<MyApp> {
+
+  int maxQuestions = 2;
   int questionIndex = 0;
 
   void answerQuestion() {
-    questionIndex += 1;
-    print(questionIndex);
+    setState(() {
+      if(questionIndex + 1 != maxQuestions){
+        questionIndex += 1;
+      }
+    });
   }
 
 
