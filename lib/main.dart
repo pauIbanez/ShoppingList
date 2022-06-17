@@ -39,8 +39,11 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
 
-    List<Question> questions = [Question(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), Question(question: "What pet do you have?", answers: ["Dog", "Cat"])];
+    List<Question> questions = [Question(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), Question(question: "What pet do you have?", answers: ["Dog", "Cat", "Whale"])];
 
+    var answerButtons = questions[questionIndex].answers.map((answer) => 
+       ElevatedButton(onPressed: answerQuestion, child: Text(answer)),
+    );
 
     return MaterialApp(
       home: Scaffold(
@@ -48,8 +51,7 @@ class MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Text(questions[questionIndex].question),
-            ElevatedButton(onPressed: answerQuestion, child: Text(questions[questionIndex].answers[0])),
-            ElevatedButton(onPressed: answerQuestion, child: Text(questions[questionIndex].answers[1])),
+            ...answerButtons
           ],
         ),
       ),
