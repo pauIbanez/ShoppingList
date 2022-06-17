@@ -1,17 +1,13 @@
-import './question/question.dart';
+import './data/questions.dart';
+import './widgets/AnswerButton/AnswerButton.dart';
+import './widgets/Question/question.dart';
+
 import "package:flutter/material.dart";
 
 void main() {
   runApp(MyApp());
 }
 
-
-class QuestionBuilder {
-  String question;
-  List<String> answers;
-
-  QuestionBuilder({required this.question, required this.answers});
-}
 
 class MyApp extends StatefulWidget {
 
@@ -25,8 +21,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-   
-  List<QuestionBuilder> questions = [QuestionBuilder(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), QuestionBuilder(question: "What pet do you have?", answers: ["Dog", "Cat", "Whale"])];
   int _questionIndex = 0;
 
   void _answerQuestion() {
@@ -43,7 +37,7 @@ class _MyAppState extends State<MyApp> {
 
 
     var answerButtons = questions[_questionIndex].answers.map((answer) => 
-       ElevatedButton(onPressed: _answerQuestion, child: Text(answer)),
+        AnswerButton(onPress: _answerQuestion, text: answer)
     );
 
     return MaterialApp(
