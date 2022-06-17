@@ -1,3 +1,5 @@
+import 'package:first_app/widgets/Quiz/Quiz.dart';
+
 import './data/questions.dart';
 import './widgets/AnswerButton/AnswerButton.dart';
 import './widgets/Question/question.dart';
@@ -35,20 +37,13 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
 
-
-    List<AnswerButton> answerButtons = (questions[_questionIndex]["answers"] as List<String>).map((answer) => 
-        AnswerButton(onPress: _answerQuestion, text: answer)
-    ).toList();
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Hello World")),
-        body: Column(
-          children: [
-            Question(questionText: (questions[_questionIndex]["question"] as String)),
-            ...answerButtons
-          ],
-        ),
+        body: Quiz(
+          onAnswerPress: _answerQuestion,
+          questionIndex: _questionIndex
+        ), 
       ),
     );
   }
