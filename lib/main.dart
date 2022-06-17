@@ -7,8 +7,8 @@ void main() {
 
 
 class QuestionBuilder {
-  String question = "";
-  List<String> answers = [];
+  String question;
+  List<String> answers;
 
   QuestionBuilder({required this.question, required this.answers});
 }
