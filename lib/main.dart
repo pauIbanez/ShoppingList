@@ -24,12 +24,13 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
 
-  int maxQuestions = 2;
+   
+  List<Question> questions = [Question(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), Question(question: "What pet do you have?", answers: ["Dog", "Cat", "Whale"])];
   int questionIndex = 0;
 
   void answerQuestion() {
     setState(() {
-      if(questionIndex + 1 != maxQuestions){
+      if(questionIndex + 1 != questions.length){
         questionIndex += 1;
       }
     });
@@ -39,7 +40,6 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
 
-    List<Question> questions = [Question(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), Question(question: "What pet do you have?", answers: ["Dog", "Cat", "Whale"])];
 
     var answerButtons = questions[questionIndex].answers.map((answer) => 
        ElevatedButton(onPressed: answerQuestion, child: Text(answer)),
