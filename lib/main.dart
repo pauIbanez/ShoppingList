@@ -12,30 +12,46 @@ class Question {
   Question({required this.question, required this.answers});
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
 
-  int questionIndex = 0;
+  @override
+  State<StatefulWidget> createState() {
 
-  void answerQuestion() {
-    questionIndex += 1;
-    print(questionIndex);
+    return _MyAppState();
+  }
+
+}
+
+class _MyAppState extends State<MyApp> {
+
+   
+  List<Question> questions = [Question(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), Question(question: "What pet do you have?", answers: ["Dog", "Cat", "Whale"])];
+  int _questionIndex = 0;
+
+  void _answerQuestion() {
+    setState(() {
+      if(_questionIndex + 1 != questions.length){
+        _questionIndex += 1;
+      }
+    });
   }
 
 
   @override
   Widget build(BuildContext context) {
 
-    List<Question> questions = [Question(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), Question(question: "What pet do you have?", answers: ["Dog", "Cat"])];
 
+    var answerButtons = questions[_questionIndex].answers.map((answer) => 
+       ElevatedButton(onPressed: _answerQuestion, child: Text(answer)),
+    );
 
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Hello World")),
         body: Column(
           children: [
-            Text(questions[questionIndex].question),
-            ElevatedButton(onPressed: answerQuestion, child: Text(questions[questionIndex].answers[0])),
-            ElevatedButton(onPressed: answerQuestion, child: Text(questions[questionIndex].answers[1])),
+            Text(questions[_questionIndex].question),
+            ...answerButtons
           ],
         ),
       ),
