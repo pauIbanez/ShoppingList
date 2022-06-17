@@ -24,11 +24,14 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   int _questionIndex = 0;
+  bool _quizFinished = false;
 
   void _answerQuestion() {
     setState(() {
       if(_questionIndex + 1 != questions.length){
         _questionIndex += 1;
+      } else {
+        _quizFinished = true;
       }
     });
   }
@@ -40,10 +43,14 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Hello World")),
-        body: Quiz(
-          onAnswerPress: _answerQuestion,
-          questionIndex: _questionIndex
-        ), 
+        body: 
+        !_quizFinished ? 
+          Quiz(
+            onAnswerPress: _answerQuestion,
+            questionIndex: _questionIndex
+          ) 
+          : 
+          Text("End"), 
       ),
     );
   }
