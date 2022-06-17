@@ -1,7 +1,4 @@
-import './data/questions.dart';
-import './widgets/AnswerButton/AnswerButton.dart';
-import './widgets/Question/question.dart';
-
+import 'package:first_app/widgets/Quiz/Quiz.dart';
 import "package:flutter/material.dart";
 
 void main() {
@@ -9,46 +6,16 @@ void main() {
 }
 
 
-class MyApp extends StatefulWidget {
-
-  @override
-  State<StatefulWidget> createState() {
-
-    return _MyAppState();
-  }
-
-}
-
-class _MyAppState extends State<MyApp> {
-
-  int _questionIndex = 0;
-
-  void _answerQuestion() {
-    setState(() {
-      if(_questionIndex + 1 != questions.length){
-        _questionIndex += 1;
-      }
-    });
-  }
+class MyApp extends StatelessWidget {
 
 
   @override
   Widget build(BuildContext context) {
 
-
-    List<AnswerButton> answerButtons = (questions[_questionIndex]["answers"] as List<String>).map((answer) => 
-        AnswerButton(onPress: _answerQuestion, text: answer)
-    ).toList();
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Hello World")),
-        body: Column(
-          children: [
-            Question(questionText: (questions[_questionIndex]["question"] as String)),
-            ...answerButtons
-          ],
-        ),
+        body: Quiz(),
       ),
     );
   }
