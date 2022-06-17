@@ -36,16 +36,16 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
 
 
-    var answerButtons = questions[_questionIndex].answers.map((answer) => 
+    List<AnswerButton> answerButtons = (questions[_questionIndex]["answers"] as List<String>).map((answer) => 
         AnswerButton(onPress: _answerQuestion, text: answer)
-    );
+    ).toList();
 
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Hello World")),
         body: Column(
           children: [
-            Question(questionText: questions[_questionIndex].question),
+            Question(questionText: (questions[_questionIndex]["question"] as String)),
             ...answerButtons
           ],
         ),
