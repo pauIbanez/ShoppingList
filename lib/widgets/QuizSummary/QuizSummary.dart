@@ -27,6 +27,7 @@ class QuizSummary extends StatelessWidget {
   print(quizAnswers);
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ...quizSummaryQuestions
       ],
