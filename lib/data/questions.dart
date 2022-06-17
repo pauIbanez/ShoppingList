@@ -1,3 +1,11 @@
-import '../classes/questionBuilder.dart';
 
-List<QuestionBuilder> questions = [QuestionBuilder(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), QuestionBuilder(question: "What pet do you have?", answers: ["Dog", "Cat", "Whale"])];
+List<Map<String, Object>> questions = [
+  {
+    "question": "Where do you live?",
+    "answers": ["Barcelona", "Reykjavik"],
+  },
+  {
+    "question": "What pet do you have?",
+    "answers": ["Dog", "Cat", "Whale"],
+  },
+];
