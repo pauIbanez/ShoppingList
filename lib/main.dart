@@ -1,3 +1,4 @@
+import './question/question.dart';
 import "package:flutter/material.dart";
 
 void main() {
@@ -5,11 +6,11 @@ void main() {
 }
 
 
-class Question {
+class QuestionBuilder {
   String question = "";
   List<String> answers = [];
 
-  Question({required this.question, required this.answers});
+  QuestionBuilder({required this.question, required this.answers});
 }
 
 class MyApp extends StatefulWidget {
@@ -25,7 +26,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
    
-  List<Question> questions = [Question(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), Question(question: "What pet do you have?", answers: ["Dog", "Cat", "Whale"])];
+  List<QuestionBuilder> questions = [QuestionBuilder(question: "Where do you live?", answers: ["Barcelona", "Reykjavik"]), QuestionBuilder(question: "What pet do you have?", answers: ["Dog", "Cat", "Whale"])];
   int _questionIndex = 0;
 
   void _answerQuestion() {
@@ -50,7 +51,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: Text("Hello World")),
         body: Column(
           children: [
-            Text(questions[_questionIndex].question),
+            Question(questionText: questions[_questionIndex].question),
             ...answerButtons
           ],
         ),
