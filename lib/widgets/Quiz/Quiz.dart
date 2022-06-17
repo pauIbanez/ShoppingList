@@ -2,6 +2,7 @@
 
 
 import 'package:first_app/data/questions.dart';
+import 'package:first_app/widgets/QuizEnd/QuizEnd.dart';
 import 'package:first_app/widgets/QuizStage/QuizStage.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,9 @@ class _QuizState extends State<Quiz> {
       QuizStage(
         onAnswerPress: _answerQuestion,
         questionIndex: _questionIndex
-      ) : Text("End");
+      ) 
+      :
+      QuizEnd();
 
     return  widgetToRender;
   }
