@@ -4,15 +4,16 @@ import 'package:first_app/widgets/Question/question.dart';
 import 'package:flutter/material.dart';
 
 class QuizStage extends StatelessWidget {
-  final void Function() onAnswerPress;
+  final void Function(String) onAnswerPress;
   final int questionIndex;
 
   QuizStage({required this.onAnswerPress, required this.questionIndex});
 
   @override
   Widget build(BuildContext context) {
-        List<AnswerButton> answerButtons = (questions[questionIndex]["answers"] as List<String>).map((answer) => 
-        AnswerButton(onPress: onAnswerPress, text: answer)
+
+    List<AnswerButton> answerButtons = (questions[questionIndex]["answers"] as List<String>).map((answer) => 
+    AnswerButton(onPress: () => onAnswerPress(answer), text: answer)
     ).toList();
     
   return Column(

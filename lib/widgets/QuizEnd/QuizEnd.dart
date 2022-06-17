@@ -1,8 +1,11 @@
 
+import 'package:first_app/widgets/QuizSummary/QuizSummary.dart';
 import 'package:flutter/material.dart';
 
 class QuizEnd extends StatelessWidget {
+  List<String> quizAnswers;
 
+  QuizEnd({required this.quizAnswers});
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +15,7 @@ class QuizEnd extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("End", 
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-            // textAlign: TextAlign.center
-            ),
+          QuizSummary(quizAnswers: quizAnswers),
           ElevatedButton(onPressed: null, child: Text("Restart"))
         ],
       ),

@@ -17,8 +17,13 @@ class _QuizState extends State<Quiz> {
 
   int _questionIndex = 0;
   bool _quizFinished = false;
+  List<String> quizAnswers = [];
 
-  void _answerQuestion() {
+  void _answerQuestion(String answer) {
+
+    print(answer);
+    quizAnswers.add(answer);
+
     setState(() {
       if(_questionIndex + 1 != questions.length){
         _questionIndex += 1;
@@ -27,6 +32,7 @@ class _QuizState extends State<Quiz> {
       }
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +43,7 @@ class _QuizState extends State<Quiz> {
         questionIndex: _questionIndex
       ) 
       :
-      QuizEnd();
+      QuizEnd(quizAnswers: quizAnswers);
 
     return  widgetToRender;
   }
