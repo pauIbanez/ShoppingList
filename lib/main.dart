@@ -1,4 +1,5 @@
-import './question/question.dart';
+import './widgets/AnswerButton/AnswerButton.dart';
+import './widgets/Question/question.dart';
 import "package:flutter/material.dart";
 
 void main() {
@@ -43,7 +44,8 @@ class _MyAppState extends State<MyApp> {
 
 
     var answerButtons = questions[_questionIndex].answers.map((answer) => 
-       ElevatedButton(onPressed: _answerQuestion, child: Text(answer)),
+        AnswerButton(onPress: _answerQuestion, text: answer)
+      //  ElevatedButton(onPressed: _answerQuestion, child: Text(answer)),
     );
 
     return MaterialApp(
