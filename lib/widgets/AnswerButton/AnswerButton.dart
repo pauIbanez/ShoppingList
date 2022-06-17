@@ -1,6 +1,3 @@
-
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class AnswerButton extends StatelessWidget {
@@ -11,6 +8,17 @@ class AnswerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: onPress, child: Text(text));
+    return Container(
+      margin: EdgeInsets.only(left: 20, right: 20),
+      width: double.infinity,
+      child: ElevatedButton(onPressed: onPress,
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 15,
+          ),
+        )
+      )
+    );
   }
 }
