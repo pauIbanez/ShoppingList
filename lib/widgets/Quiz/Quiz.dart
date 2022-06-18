@@ -33,6 +33,14 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _quizFinished = false;
+      quizAnswers = [];
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +51,7 @@ class _QuizState extends State<Quiz> {
         questionIndex: _questionIndex
       ) 
       :
-      QuizEnd(quizAnswers: quizAnswers);
+      QuizEnd(quizAnswers: quizAnswers,resetQuiz: _resetQuiz);
 
     return  widgetToRender;
   }

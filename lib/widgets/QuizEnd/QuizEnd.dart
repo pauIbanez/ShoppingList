@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class QuizEnd extends StatelessWidget {
   List<String> quizAnswers;
+  final void Function() resetQuiz;
 
-  QuizEnd({required this.quizAnswers});
+  QuizEnd({required this.quizAnswers, required this.resetQuiz});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class QuizEnd extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           QuizSummary(quizAnswers: quizAnswers),
-          ElevatedButton(onPressed: null, child: Text("Restart"))
+          ElevatedButton(onPressed: resetQuiz, child: Text("Restart"))
         ],
       ),
     );
