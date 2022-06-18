@@ -17,6 +17,7 @@ class QuizEnd extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           QuizSummary(quizAnswers: quizAnswers),
+          SizedBox(height: 50),
           ElevatedButton(onPressed: resetQuiz, child: Text("Restart"))
         ],
       ),

@@ -8,8 +8,6 @@ class QuizSummary extends StatelessWidget {
 
   QuizSummary({required this. quizAnswers});
 
-
-
   @override
   Widget build(BuildContext context) {
 

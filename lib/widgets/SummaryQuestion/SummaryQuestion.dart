@@ -13,8 +13,15 @@ class QuizSummaryQuestion extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(questionText, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        Text(questionAnswer, style: TextStyle(fontSize: 15)),
+        Container(
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 18, bottom: 5),
+          child: Text(questionText, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        ),
+           Container(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: Text(questionAnswer, style: TextStyle(fontSize: 15)),
+        ),
+        
       ],
     );
   }
