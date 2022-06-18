@@ -1,16 +1,16 @@
 # first_app
 
-A new Flutter project.
+An app that asks you 2 questions
 
-## Getting Started
+## What it does
 
-This project is a starting point for a Flutter application.
+This app asks the user to answer two simple questions:
 
-A few resources to get you started if this is your first Flutter project:
+- `Where do you live?`
+- `What pet do you have?`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+After the user answers it presents a quick summary of the questionare and allows the user to re-take the quiz.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## What I learned
+
+In this first touch with flutter I practiced custom widgets, conditional rendering in dart, stateless and statefull widgets and overall State management
